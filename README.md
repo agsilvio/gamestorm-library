@@ -12,9 +12,11 @@ https://www.pygame.org
 
 Sure! Look at the following picture. It is an example of what you can make using GameStorm.
 
-(picture)
+#### Example 1
+![Example Image 1](docs/game1.png)
 
-(picture
+#### Example 2
+![Example Image 2](docs/game2.png)
 
 ## What does 'batteries included' mean?
 
@@ -61,7 +63,9 @@ See the API Documentation for all the methods available concerning tiles.
 
 The following picture contains a diagram of a tile and its components.
 
-(picture)
+![Tile Example](docs/composite.png)
+
+![Tile Exploded View](docs/exploded-labelled.png)
 
 The essence of gamestorm is manipulating these components to make a small but fun game. Remember, there are already hundred of sample backgrounds, symbols, and cursors included. So you can use these if you don't want to worry about graphical assets just yet.
 
@@ -78,21 +82,22 @@ Drawing - that is, the actual rendering to the screen - is done deliberately. Th
 ### Input
 
 For input, GameStorm makes use of the keyboard or a gamepad. There are simple methods, for checking when one of the keys/buttons was pressed. For simplicity, the input is limited to the number of buttons that would appear on a SNES gamepad. That means, the keyboard and gamepad are restricted to the following keys:
-| Name | Gamepad | Keyboard |
-|---|---|---|
-| Up | Up | Up Arrow |
-| Down | Down | Down Arrow |
-| Left | Left | Left Arrow |
-| Right | Right | Right Arrow |
-| Button 1 | Button 1 | Key 1 |
-| Button 2 | Button 2 | Key 2 |
-| Button 3 | Button 3 | Key 3 |
-| Button 4 | Button 4 | Key 4 |
-| Button 5 | Button 5 | Key 5 |
-| Button 6 | Button 6 | Key 6 |
-| Select | Select | TAB |
-| Start | Start | ENTER |
-| Exit | None | ESC |
+
+ Name | Gamepad | Keyboard 
+---|---|---
+ Up | Up | Up Arrow 
+ Down | Down | Down Arrow 
+ Left | Left | Left Arrow 
+ Right | Right | Right Arrow 
+ Button 1 | Button 1 | Key 1 
+ Button 2 | Button 2 | Key 2 
+ Button 3 | Button 3 | Key 3 
+ Button 4 | Button 4 | Key 4 
+ Button 5 | Button 5 | Key 5 
+ Button 6 | Button 6 | Key 6 
+ Select | Select | TAB 
+ Start | Start | ENTER 
+ Exit | None | ESC 
 
 * Note: Remapping the keys or the gamepad buttons is not yet possible, but is coming soon hopefully.
 
@@ -110,28 +115,27 @@ If you're ready to see some code, then continue reading.
 
 ## Code
 
-Let's start with a simple example.
+Let's start with a simple example; our take on Hello World.
 
 ```python
 import gamestorm
 
-num_tiles_x = 8
-num_tiles_y = 12
+num_tiles_x = 15
+num_tiles_y = 7
 
 #these two lines are required
-g = gamestorm.GameStorm()  
-g.init(num_tiles_x, num_tiles_y, tile_size = gamestorm.TileSize.MEDIUM)
+g = gamestorm.GameStorm()
+g.init(num_tiles_x, num_tiles_y, tile_size = gamestorm.TileSize.MEDIUM, title = 'Hello World')
 
 #set up some stuff to draw soon!
-g.set_all_tiles_background(7)
-g.set_tile_background(8,7,20)
+g.set_all_tiles_background(25)
 
-g.set_tile_symbol(5,5,200)
-g.set_tile_cursor(5,5,1)
+g.set_tile_symbol(6,4,196)
+g.set_tile_symbol(7,4,196)
+g.set_tile_symbol(8,4,196)
+g.set_tile_cursor(7,4,1)
 
-g.set_tile_symbol(3,7,402)
-
-g.draw_text(1,4, 'gamestorm')
+g.draw_text(2,1, 'Hello World!')
 
 #perform the draw
 g.draw()
@@ -146,13 +150,10 @@ while True:
 
 That small script will render what's in the following image.
 
-(picture)
+![Hello World](docs/example.png)
 
 Just as we promised; simple! We will not demonstrate the use of sounds here, but we assure you the API is very straight forward, and you will know how to play sounds just by perusing the API documentation.
 
-### Sample Game
-
-There is a small, example game included with this package. It is called "MBots" and can be found in the `mbots.py` script in this package.
 
 # Conclusion
 
