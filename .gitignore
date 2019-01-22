@@ -1,0 +1,5 @@
+*pyc
+build
+dist
+gamestorm.egg-info
+env
