@@ -59,7 +59,7 @@ These are the main resources of the game. Each 'cell' in the grid is a tile. A t
 - Draw some text starting as a specific tile.
 - Clear all the components of all the tiles.
 
-See the API Documentation for all the methods available concerning tiles.
+See the [API documentation](https://github.com/agsilvio/gamestorm/blob/master/docs/api.md) for all the methods available concerning tiles.
 
 The following picture contains a diagram of a tile and its components.
 
@@ -152,7 +152,7 @@ That small script will render what's in the following image.
 
 ![Hello World](docs/example.png)
 
-Just as we promised; simple! We will not demonstrate the use of sounds here, but we assure you the API is very straight forward, and you will know how to play sounds just by perusing the API documentation.
+Just as we promised; simple! We will not demonstrate the use of sounds here, but we assure you the API is very straight forward, and you will know how to play sounds just by perusing the [API documentation](https://github.com/agsilvio/gamestorm/blob/master/docs/api.md).
 
 
 # Conclusion
