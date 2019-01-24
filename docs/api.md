@@ -16,6 +16,7 @@ Methods:
 Sets the given SymbolGroup's symbols to those of the tiles starting at the given coordinates. The orientation of the symbol can be given by supplying a value for direction.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -58,6 +59,7 @@ Returns: None
 Clears (sets to None) the background of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -70,6 +72,7 @@ Returns: None
 Clears (sets to None) the cursor of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -82,6 +85,7 @@ Returns: None
 Clears (sets to None) the background, symbol, and cursor of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -94,6 +98,7 @@ Returns: None
 Clears (sets to None) the symbol of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -113,6 +118,7 @@ Returns: None
 Draws the given text, starting at the given tile.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -133,12 +139,14 @@ Returns: None
 Returns the background of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
  y | int (>= 1) | The y coordinate of the tile in the grid. 
 
 Returns:
+
  Type | Description 
 ---|---
  int | The ID of the background resource of the given tile. 
@@ -148,12 +156,14 @@ Returns:
 Returns the cursor of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
  y | int (>= 1) | The y coordinate of the tile in the grid. 
 
 Returns:
+
 Type | Description 
 ---|---
  int | The ID of the cursor resource of the given tile. 
@@ -163,12 +173,14 @@ Type | Description
 Returns the symbol of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
  y | int (>= 1) | The y coordinate of the tile in the grid. 
 
 Returns:
+
 Type | Description 
 ---|---
  int | The ID of the symbol resource of the given tile. 
@@ -178,6 +190,7 @@ Type | Description
 Initialize the GameStorm system. This must be called before any other GameStorm methods.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  num_tiles_x | int (>= 1) | The desired width, in tiles, of the grid. Defaults to 15 if not supplied. 
@@ -193,11 +206,13 @@ Returns: None
 Returns true if a key-down event or gamepad button down event for the '1' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '1' button has been pressed. 
@@ -207,11 +222,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the '2' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '2' button has been pressed. 
@@ -221,11 +238,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the '3' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '3' button has been pressed. 
@@ -235,11 +254,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the '4' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '4' button has been pressed. 
@@ -249,11 +270,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the '5' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '5' button has been pressed. 
@@ -263,11 +286,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the '6' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the '6' button has been pressed. 
@@ -277,11 +302,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'down' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'down' button has been pressed. 
@@ -291,11 +318,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'exit' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'exit' button has been pressed. 
@@ -305,11 +334,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'left' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'left' button has been pressed. 
@@ -319,11 +350,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'right' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'right' button has been pressed. 
@@ -333,11 +366,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'select' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'select' button has been pressed. 
@@ -347,11 +382,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'start' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'start' button has been pressed. 
@@ -361,11 +398,13 @@ Returns:
 Returns true if a key-down event or gamepad button down event for the 'up' button exists in the given events list.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  events | EventList | List of pygame events. 
 
 Returns:
+
  Type | Description 
 ---|---
  Boolean | True if the 'up' button has been pressed. 
@@ -389,6 +428,7 @@ Returns: None
 Starts a music resource playing.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  music | int (>= 1) | The ID of the music resource to be played. 
@@ -400,6 +440,7 @@ Returns: None
 Plays a SoundFX resource.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  soundfx | int (>= 1) | The ID of the SoundFX resource to be played. 
@@ -432,6 +473,7 @@ Returns: None
 Sets the background of all the tiles in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -445,6 +487,7 @@ Returns: None
 Sets the background of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -458,6 +501,7 @@ Returns: None
 Sets the cursor of the given tile in the grid.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -471,6 +515,7 @@ Returns: None
 Sets the symbol of the given tile in the grid. It can be oriented in one of the for orientations.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 1) | The x coordinate of the tile in the grid. 
@@ -506,6 +551,7 @@ Returns: None
 Stops playback of the given SoundFX resource.
 
 Arguments:
+
  Name | Type | Description 
 ---|---|---
  soundfx | int (>= 1) | The ID of the SoundFX resource to be stopped. 
@@ -529,6 +575,8 @@ Methods:
 
 Clears (sets to None) a symbol at the given position.
 
+Arguments:
+
  Name | Type | Description 
 ---|---|---
  x | int (>= 0) |The x coordinate of the SymbolGroup's tile whose symbol should be cleared.
@@ -542,6 +590,8 @@ Returns the grid that makes up this SymbolGroup.
 
 Sets a symbol to all positions in this SymbolGroup
 
+Arguments:
+
  Name | Type | Description 
 ---|---|---
  symbol | int (>= 0) |The number ID of the symbol you want to set.
@@ -549,6 +599,8 @@ Sets a symbol to all positions in this SymbolGroup
 #### def `set_symbol(x, y, symbol)`
 
 Set a symbol at the given position in this SymbolGroup
+
+Arguments:
 
  Name | Type | Description 
 ---|---|---
