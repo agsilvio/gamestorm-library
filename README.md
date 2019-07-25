@@ -1,4 +1,4 @@
-# GameStorm
+# GameStorm - Library
 
 Welcome!
 
