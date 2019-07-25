@@ -159,3 +159,16 @@ Just as we promised; simple! We will not demonstrate the use of sounds here, but
 
 We hope you enjoy GameStorm. We hope that it helps to inspire students, programmers, makers and more. Enjoy!
 
+# FOR DEVELOPMENT OF THE GAMESTORM LIBRARY
+
+If you want to help out with this project - first of all, thank you - here are helpful hints.
+
+Install it by making a Virtualenv environment (python3) and then 
+
+`pip install .`
+
+Run the tests by running
+
+`nose2 tests`
+
+Run the sample program above as a start. It's the file called `sample-program.py`
