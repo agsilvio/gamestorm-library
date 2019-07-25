@@ -10,7 +10,7 @@ https://www.pygame.org
 
 ## Small? Grid-based? Can you show me an example?
 
-Sure! Look at the following picture. It is an example of what you can make using GameStorm.
+Sure! Look at the following picture. It is an example of what you can make using GameStorm out of the box (remember, batteries included)!
 
 #### Example 1
 ![Example Image 1](docs/game1.png)
