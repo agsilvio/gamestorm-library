@@ -813,7 +813,7 @@ class GameStorm:
         '''
         pygame.quit()
 
-    def init(self, num_tiles_x = DEFAULT_TILES_X, num_tiles_y = DEFAULT_TILES_Y, tile_size = DEFAULT_TILE_SIZE, title = 'GameStorm', debug_mode = DebugMode.NONE):
+    def init(self, num_tiles_x = DEFAULT_TILES_X, num_tiles_y = DEFAULT_TILES_Y, screen_width = DEFAULT_SCREEN_WIDTH, screen_height = DEFAULT_SCREEN_HEIGHT, title = 'GameStorm', debug_mode = DebugMode.NONE):
         '''
         Initialize the GameStorm system. This must be called before any other GameStorm methods.
 
@@ -822,7 +822,8 @@ class GameStorm:
         |---|---|---|
         | num_tiles_x | int (>= 1) | The desired width, in tiles, of the grid. Defaults to 15 if not supplied. |
         | num_tiles_y | int (>= 1) | The desired height, in tiles, of the grid. Defaults to 10 if not supplied. |
-        | tile_size | TileSize | The desired size of each tile. Each tile is square, so this value is applied to both the width and height of the tile. This value can be one of `TileSize.SMALL`, `TileSize.MEDIUM`, or `TileSize.LARGE`. Defaults to `TileSize.MEDIUM` if not supplied. |
+        | screen_width | int (>= 1) | The desired width (in pixels) of the game screen / display. |
+        | screen_height | int (>= 1) | The desired height (in pixels) of the game screen / display. |
         | title | String | The desired title of the game window. |
         | debug_mode | DebugMode | Whether to draw the debugging visuals. These are a pink grid - at the border of each row/column - and number markings for each row and column header. The possible values are `DebugMode.NONE`, `DebugMode.GRID` (grid only), and `DebugMode.GRID_AND_COORDS`.|
 
@@ -843,9 +844,17 @@ class GameStorm:
         if num_tiles_y < 1:
             raise ValueError('The value of "num_tiles_y" must be at least 1.')
 
-        #validate tile_size
-        if not isinstance(tile_size, TileSize):
-            raise TypeError('"tile_size" must be an instance of TileSize Enum.')
+        #validate screen_width
+        if not isinstance(screen_width, int):
+            raise TypeError('"screen_width" must be an instance of int.')
+        if screen_width < 1:
+            raise ValueError('The value of "screen_width" must be at least 1.')
+
+        #validate screen_height
+        if not isinstance(screen_height, int):
+            raise TypeError('"screen_height" must be an instance of int.')
+        if screen_height < 1:
+            raise ValueError('The value of "screen_height" must be at least 1.')
 
         #validate debug
         if not isinstance(debug_mode, DebugMode):
@@ -854,9 +863,6 @@ class GameStorm:
 
     
         self.initialized = False
-        self.num_tiles_x = DEFAULT_TILES_X
-        self.num_tiles_y = DEFAULT_TILES_Y
-        self.tile_size = DEFAULT_TILE_SIZE
 
         self.grid = []
 
@@ -867,7 +873,8 @@ class GameStorm:
 
         self.num_tiles_x = num_tiles_x
         self.num_tiles_y = num_tiles_y
-        self.tile_size = tile_size
+        self.screen_width = screen_width
+        self.screen_height = screen_height
         self.debug_mode = debug_mode
         self.title = title
 
@@ -899,23 +906,26 @@ class GameStorm:
         Returns: None  
         '''
         self._raise_exception_if_not_initialized()
-        int_tile_size = self.tile_size.value
+
+        #calculate tile width and height
+        int_tile_width = self.screen_width // self.num_tiles_x
+        int_tile_height = self.screen_height // self.num_tiles_y
 
         if not self.window_created:
-            pixel_width = int_tile_size * self.num_tiles_x
-            pixel_height = int_tile_size * self.num_tiles_y
-            size = pixel_width, pixel_height
+            screen_pixel_width = int_tile_width * self.num_tiles_x
+            screen_pixel_height = int_tile_height * self.num_tiles_y
+            size = screen_pixel_width, screen_pixel_height
             self.window = pygame.display.set_mode(size)
             self.window_created = True
 
         
         window = self.window
-        tile_rect = (int_tile_size, int_tile_size)
+        tile_rect = (int_tile_width, int_tile_height)
         grid = self.grid
         for x in range(len(grid)):
             for y in range(len(grid[x])):
-                pixel_x_pos = int_tile_size * x
-                pixel_y_pos = int_tile_size * y
+                pixel_x_pos = int_tile_width * x
+                pixel_y_pos = int_tile_height * y
                 tile = grid[x][y]
                 background = tile.get_background()
                 symbol = tile.get_symbol()
@@ -956,20 +966,20 @@ class GameStorm:
             debug_colour = (255,0,200)
             num_tiles_x = self.num_tiles_x
             num_tiles_y = self.num_tiles_y
-            window_width = num_tiles_x * int_tile_size
-            window_height = num_tiles_y * int_tile_size
+            window_width = num_tiles_x * int_tile_width
+            window_height = num_tiles_y * int_tile_height
             for x in range(num_tiles_x):
                 if not x:
                     continue
-                start_pos = (x * int_tile_size, 0)
-                end_pos = (x * int_tile_size, window_height) 
+                start_pos = (x * int_tile_width, 0)
+                end_pos = (x * int_tile_height, window_height) 
                 pygame.draw.line(window, debug_colour, start_pos, end_pos, 1)
 
             for y in range(num_tiles_y):
                 if not y:
                     continue
-                start_pos = (0, y * int_tile_size)
-                end_pos = (window_width, y * int_tile_size) 
+                start_pos = (0, y * int_tile_width)
+                end_pos = (window_width, y * int_tile_height) 
                 pygame.draw.line(window, debug_colour, start_pos, end_pos, 1)
 
             if self.debug_mode is DebugMode.GRID_AND_COORDS:
@@ -977,10 +987,10 @@ class GameStorm:
                     for y in range(num_tiles_y):
                         line1 = self.debug_font.render('x ' + str(x), False, debug_colour)
                         line2 = self.debug_font.render('y ' + str(y), False, debug_colour)
-                        x_pos_1 = x * int_tile_size + DEBUG_TEXT_OFFSET
-                        y_pos_1 = y * int_tile_size + DEBUG_TEXT_OFFSET
-                        x_pos_2 = x * int_tile_size + DEBUG_TEXT_OFFSET
-                        y_pos_2 = y * int_tile_size + DEBUG_TEXT_OFFSET + DEBUG_TEXT_SIZE
+                        x_pos_1 = x * int_tile_width + DEBUG_TEXT_OFFSET
+                        y_pos_1 = y * int_tile_height + DEBUG_TEXT_OFFSET
+                        x_pos_2 = x * int_tile_width + DEBUG_TEXT_OFFSET
+                        y_pos_2 = y * int_tile_height + DEBUG_TEXT_OFFSET + DEBUG_TEXT_SIZE
                         window.blit(line1,(x_pos_1, y_pos_1))
                         window.blit(line2,(x_pos_2, y_pos_2))
 
