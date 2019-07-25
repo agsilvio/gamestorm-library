@@ -122,10 +122,12 @@ import gamestorm
 
 num_tiles_x = 15
 num_tiles_y = 7
+screen_width = 1280
+screen_height = 720
 
 #these two lines are required
 g = gamestorm.GameStorm()
-g.init(num_tiles_x, num_tiles_y, tile_size = gamestorm.TileSize.MEDIUM, title = 'Hello World')
+g.init(num_tiles_x, num_tiles_y, screen_width, screen_height, title = 'Hello World')
 
 #set up some stuff to draw soon!
 g.set_all_tiles_background(25)
